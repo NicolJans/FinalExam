@@ -21,7 +21,7 @@ public class BaseTest {
     protected HomePage homepage;
     String BASEURL = "https://katalon-demo-cura.herokuapp.com/";
 
-
+    //CHROMEDRIVER SETUP
     @BeforeSuite
     public void setup() {
         ChromeOptions options = new ChromeOptions();
@@ -32,6 +32,8 @@ public class BaseTest {
         driver.get(BASEURL);
         homepage = new HomePage(driver);
     }
+
+    //METHOD TO CAPTURE SCREENSHOTS
     @AfterMethod
     public void captureScreenShots(ITestResult testResult) {
         if (ITestResult.FAILURE == testResult.getStatus()) {
@@ -55,14 +57,12 @@ public class BaseTest {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-
         }
     }
 
+    //METHOD TO CLOSE BROWSER WHEN TESTS COMPLETED
     @AfterSuite
-    //after class to close our browser
     public void tearDown() {
-        //CLOSE THE BROWSER
         driver.quit();
     }
 }
