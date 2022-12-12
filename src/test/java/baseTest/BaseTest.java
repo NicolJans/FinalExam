@@ -25,7 +25,6 @@ public class BaseTest {
     @BeforeSuite
     public void setup() {
         ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--headless");
         System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
